@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Category } from "@/app/types/category";
 import CategoryList from "./CategoryList";
 
