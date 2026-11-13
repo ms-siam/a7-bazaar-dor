@@ -4,10 +4,11 @@ import logo from "@/assets/logo-icon.png";
 import Link from "next/link";
 import Time from "../homepage/Time";
 
+
 const Navbar = () => {
     return (
         <header className="w-full border-b border-gray-200/70 bg-[#fafcf9]">
-            <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-5">
+            <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-2">
                 <Link href="/" className="flex items-center gap-3">
                     <Image
                         src={logo}
@@ -39,6 +40,7 @@ const Navbar = () => {
                     </Link>
                 </div>
             </div>
+            
         </header>
     );
 };
