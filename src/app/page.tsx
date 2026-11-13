@@ -1,6 +1,8 @@
 import { Suspense } from "react";
 import PriceTicker from "./components/homepage/PriceTicker";
 import '@/app/globals.css'
+import Hero from "@/app/components/homepage/Hero";
+import AllProducts from "@/app/components/homepage/AllProducts";
 
 export default function Home() {
   return <>
@@ -9,5 +11,7 @@ export default function Home() {
     >
       <PriceTicker />
     </Suspense>
+    <Hero />
+    <AllProducts />
   </>
 }
