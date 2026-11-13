@@ -8,8 +8,9 @@ const CategoryList = ({ categories }: { categories: Category[] }) => {
     const pathname = usePathname();
 
     return (
-        <nav className="mx-auto max-w-6xl px-4">
-            <ul className="flex items-center gap-2 overflow-x-auto py-1">
+        <nav className="bg-white">
+            <div className="mx-auto max-w-6xl px-4 ">
+                <ul className="flex items-center gap-2 overflow-x-auto py-1">
                 {categories.map((category) => {
                     const href = `/category/${category.slug}`;
                     const isActive = pathname === href;
@@ -32,6 +33,8 @@ const CategoryList = ({ categories }: { categories: Category[] }) => {
                     );
                 })}
             </ul>
+            </div>
+            
         </nav>
     );
 };
