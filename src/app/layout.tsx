@@ -11,6 +11,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
+      className="scroll-smooth bg-[#f0f5f0]"
     >
       <body className="min-h-full flex flex-col">
         <Navbar></Navbar>
