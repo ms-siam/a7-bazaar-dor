@@ -1,3 +1,4 @@
+import Navbar from "./components/shared/Navbar";
 import "./globals.css";
 
 
@@ -9,7 +10,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <Navbar></Navbar>
+        {children}</body>
     </html>
   );
 }
