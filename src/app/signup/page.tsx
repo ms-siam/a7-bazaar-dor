@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Button, FieldError, Form, Input, Label, TextField } from "@heroui/react";
 import { signIn, signUp } from "@/app/lib/auth-client";
-import { showError, showSuccess } from "@/app/lib/toast";
+import { showError, toastNextPage } from "@/app/lib/toast";
 
 export default function SignUpPage() {
     const router = useRouter();
@@ -27,7 +27,7 @@ export default function SignUpPage() {
 
         if (error) return showError(error.message ?? "Please check your form and try again.");
 
-        showSuccess("Account created! Welcome.");
+        toastNextPage("success", "Account created! Welcome.");
         router.push("/");
         router.refresh();
     };
