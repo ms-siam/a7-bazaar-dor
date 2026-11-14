@@ -29,7 +29,6 @@ export default async function ProductDetailsPage({ params }: Props) {
     return (
         <main className="bg-[#f0f5f0]">
             <div className="mx-auto w-full max-w-6xl px-4 py-8">
-                {/* Breadcrumb */}
                 <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-2 text-sm text-gray-600">
                     <Link href="/" className="hover:text-green-700">Home</Link>
                     <FaChevronRight className="text-[10px]" />

@@ -7,7 +7,7 @@ const PriceChangeSection = async ({ type }: { type: "up" | "down" }) => {
 
     const list = products
         .filter((p) => p.change.dir === type)
-        .sort((a, b) => Math.abs(b.change.pct) - Math.abs(a.change.pct)) // biggest change first
+        .sort((a, b) => Math.abs(b.change.pct) - Math.abs(a.change.pct)) 
         .slice(0, 6)
         .map(toSummary);
 

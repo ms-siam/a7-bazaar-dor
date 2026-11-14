@@ -3,7 +3,6 @@ import { Product } from "@/app/types/product";
 const fmt = (n: number) => n.toLocaleString("en-US", { maximumFractionDigits: 2 });
 
 const MarketTable = ({ markets }: { markets: Product["markets"] }) => {
-    // add the average and sort cheapest first
     const rows = markets
         .map((m) => ({ ...m, avg: (m.min + m.max) / 2 }))
         .sort((a, b) => a.avg - b.avg);
@@ -13,7 +12,7 @@ const MarketTable = ({ markets }: { markets: Product["markets"] }) => {
             <h2 className="mb-4 text-xl font-bold text-gray-900">Today&apos;s Price by Market</h2>
 
             <div className="overflow-x-auto rounded-2xl border border-gray-200/70">
-                <table className="w-full min-w-[640px] text-left">
+                <table className="w-full min-w-160 text-left">
                     <thead>
                         <tr className="text-sm text-gray-500">
                             <th className="px-5 py-4 font-medium">Market</th>
