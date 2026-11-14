@@ -75,17 +75,17 @@ const AuthButtons = () => {
                             <Link
                                 href="/profile"
                                 onClick={() => setOpen(false)}
-                                className="block rounded-xl px-3 py-3 font-medium text-gray-800 hover:bg-green-50"
+                                className="flex items-center gap-2 rounded-xl px-3 py-3 font-medium text-gray-800 hover:bg-green-50"
                             >
-                                <CgProfile className="mr-2 inline" />
+                                <CgProfile className="text-lg" />
                                 My Profile
                             </Link>
 
                             <button
                                 onClick={handleSignOut}
-                                className="w-full rounded-xl px-3 py-3 text-left font-medium text-red-600 hover:bg-red-50"
+                                className="flex w-full items-center gap-2 rounded-xl px-3 py-3 text-left font-medium text-red-600 hover:bg-red-50"
                             >
-                                <PiSignOut className="mr-2 inline" />
+                                <PiSignOut className="text-lg" />
                                 Sign Out
                             </button>
                         </div>
