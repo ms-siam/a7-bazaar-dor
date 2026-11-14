@@ -17,8 +17,8 @@ type Props = {
 
 const SortDropdown = ({ value, onChange }: Props) => {
     return (
-        <div className="flex items-center gap-3">
-            <span className="text-gray-500">Sort</span>
+        <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+            <span className="whitespace-nowrap text-gray-500">Sort</span>
 
             <Select
                 aria-label="Sort products"
@@ -26,14 +26,14 @@ const SortDropdown = ({ value, onChange }: Props) => {
                 onChange={(key) => {
                     if (key) onChange(String(key) as SortOption);
                 }}
-                className="w-56"
+                className="w-fit"
             >
                 <Select.Trigger>
                     <Select.Value />
                     <Select.Indicator />
                 </Select.Trigger>
 
-                <Select.Popover>
+                <Select.Popover className="min-w-48">
                     <ListBox>
                         {OPTIONS.map((option) => (
                             <ListBox.Item
