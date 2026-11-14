@@ -5,7 +5,7 @@ const Footer = () => {
             <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 py-8 text-center text-sm text-gray-500 sm:flex-row sm:text-left">
 
                 <p>
-                    BazaarDor — Essential market prices, all in one place.
+                    BazaarDor - Essential market prices, all in one place.
                 </p>
 
                 <p>
