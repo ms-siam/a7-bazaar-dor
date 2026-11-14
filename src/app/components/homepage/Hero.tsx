@@ -33,7 +33,6 @@ const Hero = () => {
                         </a>
                     </div>
 
-                    {/* Right: image */}
                     <div className="shrink-0">
                         <Image
                             src={heroImg}
