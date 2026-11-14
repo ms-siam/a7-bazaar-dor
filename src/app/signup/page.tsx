@@ -2,23 +2,21 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
 import { Button, FieldError, Form, Input, Label, TextField } from "@heroui/react";
 import { signIn, signUp } from "@/app/lib/auth-client";
+import { showError, showSuccess } from "@/app/lib/toast";
 
 export default function SignUpPage() {
     const router = useRouter();
-    const [error, setError] = useState("");
 
     const handleSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setError("");
 
         const formData = new FormData(e.currentTarget);
         const password = String(formData.get("password"));
 
         if (password !== String(formData.get("confirm"))) {
-            return setError("Passwords do not match");
+            return showError("Passwords do not match. Please try again.");
         }
 
         const { error } = await signUp.email({
@@ -27,8 +25,9 @@ export default function SignUpPage() {
             password,
         });
 
-        if (error) return setError(error.message ?? "Could not create account");
+        if (error) return showError(error.message ?? "Please check your form and try again.");
 
+        showSuccess("Account created! Welcome.");
         router.push("/");
         router.refresh();
     };
@@ -42,7 +41,11 @@ export default function SignUpPage() {
                 </p>
 
                 <div className="mt-6 rounded-3xl border border-gray-200/70 bg-[#fafcf9] p-6">
-                    <Form className="flex flex-col gap-4" onSubmit={handleSignUp}>
+                    <Form
+                        className="flex flex-col gap-4"
+                        onSubmit={handleSignUp}
+                        onInvalid={() => showError("Please check your form and try again.")}
+                    >
                         <TextField isRequired name="name">
                             <Label>Name</Label>
                             <Input placeholder="John Doe" />
@@ -66,8 +69,6 @@ export default function SignUpPage() {
                             <Input placeholder="Type it again" />
                             <FieldError />
                         </TextField>
-
-                        {error && <p className="text-sm text-red-600">{error}</p>}
 
                         <Button type="submit">Create account</Button>
                     </Form>
