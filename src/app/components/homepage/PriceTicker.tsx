@@ -25,7 +25,7 @@ const TickerItem = ({ product }: { product: Product }) => {
             : "text-gray-500";
 
     return (
-        <div className="flex shrink-0 items-center gap-2  px-6 py-1 bg-white">
+        <div className="flex shrink-0 items-center gap-2 whitespace-nowrap bg-white px-4 py-1.5 text-sm sm:px-6 sm:py-1 sm:text-base">
             <span className="text-lg">{product.image}</span>
             <span className="font-semibold text-gray-900">{product.nameBn}</span>
             <span className="text-gray-500">
