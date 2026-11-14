@@ -1,7 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import { IoArrowBackOutline } from "react-icons/io5";
 import { useRouter } from "next/navigation";
+import { FcGoogle } from "react-icons/fc";
+import { FaGithub } from "react-icons/fa6";
 import { Button, FieldError, Form, Input, Label, TextField } from "@heroui/react";
 import { signIn } from "@/app/lib/auth-client";
 import { showError, toastNextPage } from "@/app/lib/toast";
@@ -61,28 +64,48 @@ export default function SignInPage() {
                             <FieldError />
                         </TextField>
 
-                        <Button type="submit">Sign in</Button>
+                        <Button type="submit" className='w-full bg-green-700'>Sign in</Button>
                     </Form>
+                    <div className="my-3 flex items-center gap-4 text-sm text-gray-800">
+                        <span className="h-px flex-1 bg-gray-200" />
+                        <span>OR</span>
+                        <span className="h-px flex-1 bg-gray-200" />
+                    </div>
 
-                    <div className="mt-4 flex gap-3">
-                        <Button variant="secondary" className="flex-1" onPress={() => handleSocial("google")}>
-                            Google
-                        </Button>
-                        <Button variant="secondary" className="flex-1" onPress={() => handleSocial("github")}>
-                            GitHub
-                        </Button>
+                    <div className="flex flex-col gap-3 sm:flex-row">
+                        <button
+                            type="button"
+                            onClick={() => handleSocial("google")}
+                            className="flex flex-1 items-center text-xs justify-center gap-2.5 rounded-xl border border-gray-200 bg-[#fafcf9] px-4 py-3 font-semibold text-gray-900 transition-colors hover:bg-gray-100"
+                        >
+                            <FcGoogle className="text-xl" />
+                            Continue with Google
+                        </button>
+
+                        <button
+                            type="button"
+                            onClick={() => handleSocial("github")}
+                            className="flex flex-1 items-center text-xs justify-center gap-2.5 rounded-xl border border-gray-200 bg-[#fafcf9] px-4 py-3 font-semibold text-gray-900 transition-colors hover:bg-gray-100"
+                        >
+                            <FaGithub className="text-xl" />
+                            Continue with GitHub
+                        </button>
                     </div>
 
                     <p className="mt-5 text-center">
                         Don&apos;t have an account?{" "}
-                        <Link href="/signup" className="text-green-700 hover:underline">
+                        <Link href="/signup" className="text-green-700 underline">
                             Sign up
                         </Link>
                     </p>
                 </div>
 
-                <Link href="/" className="mt-6 block text-center text-gray-500 hover:text-green-700">
-                    ← Back to home
+                <Link
+                    href="/"
+                    className="mt-6 flex items-center justify-center gap-1 text-gray-500 underline hover:text-green-700"
+                >
+                    <IoArrowBackOutline />
+                    Back to home
                 </Link>
             </div>
         </main>
