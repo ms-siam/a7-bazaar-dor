@@ -22,6 +22,7 @@ const AuthButtons = () => {
         const handleSignOut = async () => {
             await signOut();
             setOpen(false);
+            showSuccess("Signed out successfully.");
             router.push("/");
             router.refresh();
         };

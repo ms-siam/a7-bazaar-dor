@@ -16,8 +16,10 @@ const AllProductsGrid = ({ products }: { products: ProductSummary[] }) => {
 
     return (
         <>
-            <div className="mb-5 flex items-center justify-between gap-10">
-                <p className="text-gray-500">Showing {sorted.length} products in total</p>
+            <div className="mb-5 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
+                <p className="text-sm text-gray-500 sm:text-base">
+                    Showing {sorted.length} products in total
+                </p>
                 <SortDropdown value={sort} onChange={setSort} />
             </div>
 
