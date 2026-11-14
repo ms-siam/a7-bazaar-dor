@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import "@heroui/styles"; 
+@import "@heroui/styles";
 
 @keyframes ticker {
     from {
@@ -42,4 +42,19 @@
 .Toastify__toast-icon {
     width: auto;
     margin-inline-end: 0.75rem;
+}
+
+@media (max-width: 480px) {
+    .Toastify__toast-container--top-center {
+        top: 0.75rem !important;
+        left: 0 !important;
+        width: 100vw !important;
+        padding: 0 1rem !important;
+        transform: none !important;
+    }
+
+    .Toastify__toast {
+        margin-bottom: 0.5rem;
+        font-size: 1rem;
+    }
 }
