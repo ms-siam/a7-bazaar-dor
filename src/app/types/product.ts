@@ -22,3 +22,8 @@ export interface Product {
         max: number;
     }[];
 }
+
+export type ProductSummary = Pick<
+    Product,
+    "id" | "slug" | "nameBn" | "unit" | "image" | "today" | "change"
+>;
