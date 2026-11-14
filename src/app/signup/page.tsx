@@ -32,6 +32,11 @@ export default function SignUpPage() {
         router.refresh();
     };
 
+    const handleSocial = (provider: "google" | "github") => {
+        toastNextPage("success", "Signed in successfully.");
+        signIn.social({ provider, callbackURL: "/" });
+    };
+
     return (
         <main className="bg-[#f0f5f0]">
             <div className="mx-auto w-full max-w-md px-4 py-12">
@@ -77,14 +82,14 @@ export default function SignUpPage() {
                         <Button
                             variant="secondary"
                             className="flex-1"
-                            onPress={() => signIn.social({ provider: "google", callbackURL: "/" })}
+                            onPress={() => handleSocial("google")}
                         >
                             Google
                         </Button>
                         <Button
                             variant="secondary"
                             className="flex-1"
-                            onPress={() => signIn.social({ provider: "github", callbackURL: "/" })}
+                            onPress={() => handleSocial("github")}
                         >
                             GitHub
                         </Button>

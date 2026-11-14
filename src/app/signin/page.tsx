@@ -30,8 +30,10 @@ export default function SignInPage() {
         router.refresh();
     };
 
-    const handleSocial = (provider: "google" | "github") =>
+    const handleSocial = (provider: "google" | "github") => {
+        toastNextPage("success", "Signed in successfully.");
         signIn.social({ provider, callbackURL: getCallback() });
+    };
 
     return (
         <main className="bg-[#f0f5f0]">
