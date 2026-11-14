@@ -42,6 +42,13 @@ export default async function ProductDetailsPage({ params }: Props) {
                 <ProductHeader product={product} />
                 <PriceSummary product={product} />
                 <MarketTable markets={product.markets} />
+                <Link
+                    href={`/category/${product.category}`}
+                    className="mt-6 inline-flex items-center gap-2 rounded-lg border border-transparent px-4 py-2.5 font-medium text-gray-900 transition-colors hover:border-gray-300 hover:bg-gray-200/80"
+                >
+                    <span className="text-lg">{product.categoryIcon}</span>
+                    <span>View all {product.categoryNameBn}</span>
+                </Link>
             </div>
         </main>
     );
