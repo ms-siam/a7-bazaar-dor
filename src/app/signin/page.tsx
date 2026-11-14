@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Button, FieldError, Form, Input, Label, TextField } from "@heroui/react";
 import { signIn } from "@/app/lib/auth-client";
-import { showError, showSuccess } from "@/app/lib/toast";
+import { showError, toastNextPage } from "@/app/lib/toast";
 
 const getCallback = () => {
     const url = new URLSearchParams(window.location.search).get("callbackURL");
@@ -25,7 +25,7 @@ export default function SignInPage() {
 
         if (error) return showError(error.message ?? "Please check your form and try again.");
 
-        showSuccess("Signed in successfully.");
+        toastNextPage("success", "Signed in successfully.");
         router.push(getCallback());
         router.refresh();
     };
