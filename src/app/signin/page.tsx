@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
 import { Button, FieldError, Form, Input, Label, TextField } from "@heroui/react";
 import { signIn } from "@/app/lib/auth-client";
+import { showError, showSuccess } from "@/app/lib/toast";
 
 const getCallback = () => {
     const url = new URLSearchParams(window.location.search).get("callbackURL");
@@ -13,11 +13,9 @@ const getCallback = () => {
 
 export default function SignInPage() {
     const router = useRouter();
-    const [error, setError] = useState("");
 
     const handleSignIn = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setError("");
 
         const formData = new FormData(e.currentTarget);
         const { error } = await signIn.email({
@@ -25,8 +23,9 @@ export default function SignInPage() {
             password: String(formData.get("password")),
         });
 
-        if (error) return setError(error.message ?? "Invalid email or password");
+        if (error) return showError(error.message ?? "Please check your form and try again.");
 
+        showSuccess("Signed in successfully.");
         router.push(getCallback());
         router.refresh();
     };
@@ -43,7 +42,11 @@ export default function SignInPage() {
                 </p>
 
                 <div className="mt-6 rounded-3xl border border-gray-200/70 bg-[#fafcf9] p-6">
-                    <Form className="flex flex-col gap-4" onSubmit={handleSignIn}>
+                    <Form
+                        className="flex flex-col gap-4"
+                        onSubmit={handleSignIn}
+                        onInvalid={() => showError("Please check your form and try again.")}
+                    >
                         <TextField isRequired name="email" type="email">
                             <Label>Email</Label>
                             <Input placeholder="you@example.com" />
@@ -55,8 +58,6 @@ export default function SignInPage() {
                             <Input placeholder="At least 8 characters" />
                             <FieldError />
                         </TextField>
-
-                        {error && <p className="text-sm text-red-600">{error}</p>}
 
                         <Button type="submit">Sign in</Button>
                     </Form>
@@ -79,7 +80,7 @@ export default function SignInPage() {
                 </div>
 
                 <Link href="/" className="mt-6 block text-center text-gray-500 hover:text-green-700">
-                - Back to home
+                    ← Back to home
                 </Link>
             </div>
         </main>
