@@ -10,7 +10,9 @@ import ToastProvider from "@/app/components/shared/ToastProvider";
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
     return (
-        <html lang="en" className="light scroll-smooth" style={{ colorScheme: "light" }}>
+        <html lang="en" 
+        data-theme='light'
+        className="light scroll-smooth" style={{ colorScheme: "light" }}>
             <body className="min-h-screen flex flex-col">
                 <ToastProvider />
                 <div className="sticky top-0 z-50">
