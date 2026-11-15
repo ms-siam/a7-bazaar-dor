@@ -10,10 +10,9 @@ import ToastProvider from "@/app/components/shared/ToastProvider";
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
     return (
-        <html lang="en" className="scroll-smooth bg-[#f0f5f0]">
+        <html lang="en" className="light scroll-smooth" style={{ colorScheme: "light" }}>
             <body className="min-h-screen flex flex-col">
                 <ToastProvider />
-                {/* Sticky Navbar + Categories */}
                 <div className="sticky top-0 z-50">
                     <Navbar />
 

@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @import "@heroui/styles";
-@plugin "daisyui";
 
 
 @keyframes ticker {
@@ -10,6 +9,11 @@
     to {
         transform: translateX(-50%);
     }
+}
+
+body {
+    background: #f0f5f0;
+    color: #111827;
 }
 
 .ticker-track {
