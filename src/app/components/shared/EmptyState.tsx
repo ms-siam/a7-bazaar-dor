@@ -17,7 +17,7 @@ const EmptyState = ({ title, description }: Props) => (
             href="/"
             className="mt-8 rounded-lg bg-green-700 px-6 py-3 font-medium text-white shadow-md shadow-green-900/20 transition-colors hover:bg-green-800"
         >
-            হোম পেজে ফিরে যান
+            Go Back to Homepage
         </Link>
     </div>
 );

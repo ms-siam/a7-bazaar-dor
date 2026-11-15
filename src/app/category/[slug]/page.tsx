@@ -4,6 +4,7 @@ import { getCategories } from "@/app/lib/categories";
 import { getProducts, toSummary } from "@/app/lib/products";
 import CategoryHeader from "@/app/components/category/CategoryHeader";
 import AllProductsGrid from "@/app/components/homepage/AllProductsGrid";
+import EmptyState from "@/app/components/shared/EmptyState";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -34,9 +35,10 @@ export default async function CategoryPage({ params }: Props) {
                 <CategoryHeader category={category} count={items.length} />
 
                 {items.length === 0 ? (
-                    <p className="py-10 text-center text-gray-500">
-                        No products found in this category.
-                    </p>
+                    <EmptyState
+                        title="No products here yet"
+                        description="This category doesn't have any products right now."
+                    />
                 ) : (
                     <AllProductsGrid key={slug} products={items} />
                 )}
